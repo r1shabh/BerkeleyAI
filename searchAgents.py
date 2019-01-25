@@ -498,7 +498,15 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    return foodGrid.count()
+    total = foodGrid.count()
+    food_locations = []
+    for i in range(len(foodGrid.data)):
+        for j in range(len(foodGrid.data[i])):
+            location = (i, j)
+            if foodGrid.data[i][j]:
+                food_locations.append(location)
+    
+    return total
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
